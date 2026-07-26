@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: siteTitle,
   description: siteDescription,
+  robots: {
+    index: false,
+    follow: false,
+  },
   icons: {
     icon: [
       {

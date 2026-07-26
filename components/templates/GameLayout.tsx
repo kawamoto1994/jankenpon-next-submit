@@ -22,7 +22,7 @@ const GameLayout = (props: GameLayoutProps) => {
 
   return (
     <div>
-      <main className="flex min-h-dvh justify-center bg-[url(/bg.png)] bg-cover bg-center bg-fixed px-4 py-6 md:p-10">
+      <main className="flex min-h-dvh justify-center bg-[url(/images/bg.png)] bg-cover bg-center bg-fixed px-4 py-6 md:p-10">
         <div className="w-full max-w-2xl rounded-4xl border border-gray-200 bg-white p-8 shadow-xl md:p-12">
           <Logo srOnlySuffix={logoSrOnlySuffix} />
 

@@ -1,6 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useEffect, useId, useRef } from "react";
+
+import Heading2 from "@/components/atoms/Heading2";
+import PrimaryButton from "@/components/atoms/PrimaryButton";
 
 interface ModalProps {
   open: boolean;
@@ -12,39 +16,43 @@ interface ModalProps {
 
 const Modal = (props: ModalProps) => {
   const { open, title, closeLabel, onClose, children } = props;
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
 
-  if (!open) {
-    return null;
-  }
+  useEffect(() => {
+    const dialog = dialogRef.current;
+
+    if (!dialog) {
+      return;
+    }
+
+    if (open && !dialog.open) {
+      dialog.showModal();
+      return;
+    }
+
+    if (!open && dialog.open) {
+      dialog.close();
+    }
+  }, [open]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4 py-6"
-      role="presentation"
+    <dialog
+      ref={dialogRef}
+      aria-labelledby={titleId}
+      className="m-auto w-[calc(100%-2rem)] max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl backdrop:bg-black/50"
+      onClose={onClose}
     >
-      <section
-        aria-labelledby="modal-title"
-        aria-modal="true"
-        role="dialog"
-        className="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-2xl"
-      >
-        <h2 id="modal-title" className="text-xl font-bold text-gray-900">
-          {title}
-        </h2>
-        {children && (
-          <div className="mt-4 text-base leading-relaxed text-gray-600">
-            {children}
-          </div>
-        )}
-        <button
-          type="button"
-          className="mt-6 flex w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-bold text-white transition hover:bg-gray-800"
-          onClick={onClose}
-        >
-          {closeLabel}
-        </button>
-      </section>
-    </div>
+      <Heading2 id={titleId}>{title}</Heading2>
+      {children && (
+        <div className="mt-4 text-base leading-relaxed text-gray-600">
+          {children}
+        </div>
+      )}
+      <PrimaryButton type="button" className="mt-6" onClick={onClose}>
+        {closeLabel}
+      </PrimaryButton>
+    </dialog>
   );
 };
 

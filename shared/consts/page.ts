@@ -1,8 +1,22 @@
 import { PAGE_NAMES } from "./pageNames";
 
+const RESULT_GAME_STATUS = {
+  WIN: "勝ち",
+  LOSE: "負け",
+} as const;
+
 export const PAGE = {
+  HOME: {
+    DESCRIPTION_LINES: [
+      "URLを共有して、みんなでじゃんけんできるゲームです。",
+      "しあいを作って、友だちにURLを送るだけ。",
+    ],
+    NOTICE: "作成したしあいは1週間有効です。",
+    HOW_TO_TITLE: "遊び方",
+    CREATE_GAME: PAGE_NAMES.CREATE_GAME.name,
+  },
   CREATE_GAME: {
-    TITLE: PAGE_NAMES.CREATE_GAME,
+    TITLE: PAGE_NAMES.CREATE_GAME.name,
     GAME_NAME: {
       LABEL: "しあい名",
       NOTE: "（例: 週末じゃんけん）",
@@ -15,7 +29,7 @@ export const PAGE = {
       ERROR: "参加人数を選択してください。",
     },
     NOTICE: "このしあいは作成から1週間有効です。",
-    SUBMIT: PAGE_NAMES.CREATE_GAME,
+    SUBMIT: PAGE_NAMES.CREATE_GAME.name,
   },
   CREATED_GAME: {
     TITLE: "しあいを作りました",
@@ -31,7 +45,7 @@ export const PAGE = {
     RESULT_URL_LABEL: "結果URL",
     RESULT_URL: "https://example.com/result/xxxx",
     RESULT_URL_COPY: "結果URLをコピー",
-    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME,
+    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME.name,
     COPY_SUCCESS: "コピーしました。",
     COPY_ERROR: "コピーできませんでした。URLを選択してコピーしてください。",
     MODAL_CLOSE: "閉じる",
@@ -85,6 +99,7 @@ export const PAGE = {
   },
   RESULT_GAME: {
     TITLE: "じゃんけん結果",
+    STATUS: RESULT_GAME_STATUS,
     GAME_NAME_LABEL: "しあい名",
     GAME_NAME: "週末じゃんけん",
     RESULT_LABEL: "結果",
@@ -99,28 +114,28 @@ export const PAGE = {
       {
         name: "たろう",
         hand: "ぐー",
-        status: "勝ち",
+        status: RESULT_GAME_STATUS.WIN,
       },
       {
         name: "はなこ",
         hand: "ちょき",
-        status: "負け",
+        status: RESULT_GAME_STATUS.LOSE,
       },
       {
         name: "ゆうた",
         hand: "ちょき",
-        status: "負け",
+        status: RESULT_GAME_STATUS.LOSE,
       },
       {
         name: "あおい",
         hand: "ちょき",
-        status: "負け",
+        status: RESULT_GAME_STATUS.LOSE,
       },
     ],
     EXPIRES_AT_LABEL: "有効期限",
     EXPIRES_AT: "2026年7月12日 23:59まで",
     EXPIRES_AT_SUMMARY: "有効期限: 2026年7月12日 23:59まで",
-    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME,
+    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME.name,
   },
   GAME_EXPIRED: {
     TITLE: "このしあいは期限切れです",
@@ -129,6 +144,6 @@ export const PAGE = {
     EXPIRES_AT_LABEL: "有効期限",
     EXPIRES_AT: "2026年7月12日 23:59まで",
     DESCRIPTION: "新しいしあいを作って、もう一度遊んでください。",
-    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME,
+    CREATE_NEW_GAME: PAGE_NAMES.CREATE_GAME.name,
   },
 } as const;

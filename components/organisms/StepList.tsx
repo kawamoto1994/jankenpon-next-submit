@@ -6,10 +6,10 @@ interface StepListProps {
 }
 
 const STEPS = [
-  PAGE_NAMES.CREATE_GAME,
-  PAGE_NAMES.CREATED_GAME,
-  PAGE_NAMES.PLAY_GAME,
-  PAGE_NAMES.RESULT_GAME,
+  PAGE_NAMES.CREATE_GAME.name,
+  PAGE_NAMES.CREATED_GAME.name,
+  PAGE_NAMES.PLAY_GAME.name,
+  PAGE_NAMES.RESULT_GAME.name,
 ];
 
 const StepList = (props: StepListProps) => {
