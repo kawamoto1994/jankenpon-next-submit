@@ -18,8 +18,16 @@ export interface Database {
           expires_at: string;
           created_at?: string;
         };
-        Update: never;
+        Update: {
+          id?: string;
+          name?: string;
+          player_count?: number;
+          expires_at?: string;
+          created_at?: string;
+        };
+        Relationships: [];
       };
+
       game_results: {
         Row: {
           id: string;
@@ -35,8 +43,29 @@ export interface Database {
           weapon: Weapon;
           created_at?: string;
         };
-        Update: never;
+        Update: {
+          id?: string;
+          game_id?: string;
+          player_name?: string;
+          weapon?: Weapon;
+          created_at?: string;
+        };
+        Relationships: [];
       };
     };
+    Views: {
+      game_summary: {
+        Row: {
+          game_id: string;
+          game_name: string;
+          player_count: number;
+          expires_at: string;
+          created_at: string;
+          submitted_count: number;
+        };
+        Relationships: [];
+      };
+    };
+    Functions: {};
   };
 }

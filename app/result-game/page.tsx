@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import ResultGameClient from "@/components/pages/ResultGameClient";
+import ResultGamePage from "@/components/pages/ResultGame";
 import { PAGE } from "@/shared";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ResultGame() {
-  return <ResultGameClient />;
+  return <ResultGamePage />;
 }

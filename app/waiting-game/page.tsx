@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import WaitingGameClient from "@/components/pages/WaitingGameClient";
+import WaitingGamePage from "@/components/pages/WaitingGame";
 import { PAGE } from "@/shared";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function WaitingGame() {
-  return <WaitingGameClient />;
+  return <WaitingGamePage />;
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import CreatedGameClient from "@/components/pages/CreatedGameClient";
+import CreatedGamePage from "@/components/pages/CreatedGame";
 import { PAGE } from "@/shared";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function CreatedGame() {
-  return <CreatedGameClient />;
+  return <CreatedGamePage />;
 }

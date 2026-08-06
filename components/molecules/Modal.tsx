@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect, useId, useRef } from "react";
 
 import Heading2 from "@/components/atoms/Heading2";
-import PrimaryButton from "@/components/atoms/PrimaryButton";
+import PrimaryButton from "@/components/atoms/button/PrimaryButton";
 
 interface ModalProps {
   open: boolean;

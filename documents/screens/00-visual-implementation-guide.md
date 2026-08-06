@@ -189,7 +189,7 @@ const playerCountOptions = [
 
 ### PrimaryButton
 
-主要アクションには `components/atoms/PrimaryButton.tsx` を使う。
+主要アクションには `components/atoms/button/PrimaryButton.tsx` を使う。
 
 ```tsx
 <PrimaryButton href="/create-game" className="mt-8" iconName="arrow">
@@ -205,7 +205,7 @@ bg-black text-white hover:bg-gray-800
 
 ### SecondaryButton
 
-補助アクションには `components/atoms/SecondaryButton.tsx` を使う。
+補助アクションには `components/atoms/button/SecondaryButton.tsx` を使う。
 
 ```tsx
 <SecondaryButton type="button" className="mt-3" onClick={onClick}>
@@ -302,9 +302,9 @@ grid grid-cols-3 gap-3
 - `open` が `false` の場合は何も描画しない。
 - 本文が必要な場合は `children` を渡す。
 
-### BaseButtonLayout
+### ButtonBase
 
-ボタンの共通レイアウトは `components/templates/BaseButtonLayout.tsx` に集約する。
+ボタンの共通実装は `components/atoms/button/ButtonBase.tsx` に集約する。
 
 共通スタイル:
 
@@ -312,7 +312,7 @@ grid grid-cols-3 gap-3
 relative flex w-full items-center justify-center rounded-full px-6 py-3 text-base font-bold transition
 ```
 
-`PrimaryButton` と `SecondaryButton` はこのレイアウトを使う。画面側から直接 `BaseButtonLayout` を使うのではなく、用途に応じて `PrimaryButton` または `SecondaryButton` を使う。
+`PrimaryButton` と `SecondaryButton` はこの共通実装を使う。`ButtonBase` はボタン atom 内部の実装であり、画面側から直接使わず、用途に応じて `PrimaryButton` または `SecondaryButton` を使う。
 
 ## アイコン指定
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import GameExpiredClient from "@/components/pages/GameExpiredClient";
+import GameExpiredPage from "@/components/pages/GameExpired";
 import { PAGE } from "@/shared";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function GameExpired() {
-  return <GameExpiredClient />;
+  return <GameExpiredPage />;
 }
